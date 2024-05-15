@@ -1,6 +1,7 @@
 import { useMemo, Dispatch } from "react"
 import type { CartItem } from "../types"
 import type { CartActions } from "../reducers/cart-reducer"
+import ItemCounter from "./ItemCounter"
 
 type HeaderProps = {
     cart: CartItem[]
@@ -12,6 +13,7 @@ const Header = ({cart, dispatch} : HeaderProps) => {
     // State derivado
     const isEmpty = useMemo(() => cart.length === 0, [cart])
     const cartTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart])
+    const totalItems = useMemo(() => cart.reduce((total, item) => total + item.quantity, 0), [cart])
 
   return (
     <header className="py-5 header">
@@ -26,6 +28,7 @@ const Header = ({cart, dispatch} : HeaderProps) => {
                     <div 
                         className="carrito"
                     >
+                        {!isEmpty && <ItemCounter totalItems={totalItems} />}
                         <img className="img-fluid" src="/img/carrito.png" alt="imagen carrito" />
 
                         <div id="carrito" className="bg-white p-3">

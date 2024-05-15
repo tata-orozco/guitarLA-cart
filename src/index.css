@@ -53,6 +53,28 @@
 .m-0 {
   margin: 0;
 }
+
+.rounded-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 100%;
+  position: absolute;
+  top: -16px;
+  right: -20px;
+  width: 1.5rem;
+  height: 1.5rem;
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
+  color: #fff;
+}
+
+nav {
+  padding: 0 2rem !important;
+}
+
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
